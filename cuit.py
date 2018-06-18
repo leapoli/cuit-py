@@ -81,21 +81,19 @@ def obtenerDigitoVerificador(digitos, documento):
 		retorno = 0;
 	return retorno;
 
-#Chequea si no hay 3 argumentos, entonces imprime la ayuda
-#argv[0]: nombre del script
-#argv[1]: letra sexo
-#argv[2]: número de documento
-if(len(sys.argv) != 3 ):
-	print(usage);
-#Chequea que sólo se ingrese una letra de las posibles	
-elif(not re.match("[MFE]{1}", sys.argv[1]) or len( sys.argv[1])!= 1):
-	print("Debe ingresar una letra válida");
-#Calcula el CUIT
-else:
-	print("CUIT:")
-	print(obtenerCuit(sys.argv[1],sys.argv[2],False));
-	print("CUIT alternativo:")
-	print(obtenerCuit(sys.argv[1],sys.argv[2],True));
-	
-
-	
+if __name__ == "__main__":
+	#Chequea si no hay 3 argumentos, entonces imprime la ayuda
+	#argv[0]: nombre del script
+	#argv[1]: letra sexo
+	#argv[2]: número de documento
+	if(len(sys.argv) != 3 ):
+		print(usage);
+	#Chequea que sólo se ingrese una letra de las posibles	
+	elif(not re.match("[MFE]{1}", sys.argv[1]) or len( sys.argv[1])!= 1):
+		print("Debe ingresar una letra válida");
+	#Calcula el CUIT
+	else:
+		print("CUIT:")
+		print(obtenerCuit(sys.argv[1],sys.argv[2],False));
+		print("CUIT alternativo:")
+		print(obtenerCuit(sys.argv[1],sys.argv[2],True));
